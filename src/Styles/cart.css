@@ -1,0 +1,58 @@
+:root {
+  --info: rgb(78, 186, 186);
+  --white: #ffffff;
+}
+.image{
+    width: 60px ;
+    height: 55px;
+    object-fit: cover;
+  }
+.delicon{
+  cursor: pointer;
+}  
+.increment{
+  font-size: 25px;
+  margin: 0px 10px !important;
+  background-color: aqua;
+  padding: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cartbtn{
+  background-color: var(--info);
+  border: 1px solid var(--info);
+  transition: all 0.3s;
+  color: var(--white);
+}
+.cartbtn:hover{
+  background-color: var(--white);
+  color: var(--info);
+  border:1px solid var(--info);
+  transform: scale(1);
+}
+.subtot{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+.checkout__bill{
+  background-color:rgb(215, 242, 242);
+  padding: 12px;
+  border: 5px solid rgb(68, 172, 172);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.checkout__total {
+  border-top: 1px solid #ddd;
+  padding-top: 30px;
+}
+
+/* payment  */
+.paperback{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+
+.noitem{
+  margin: 111px 0px  !important;
+}

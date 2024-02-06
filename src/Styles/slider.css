@@ -1,0 +1,33 @@
+.name {
+  color: black;
+  line-height: 30px;
+  margin: 50px 0px;
+
+}
+
+[data-bs-theme=dark].carousel .carousel-control-prev-icon {
+  filter:none !important;
+}
+.carousel-control-next-icon {
+  filter: none !important;
+}
+
+[data-bs-theme=dark].carousel .carousel-indicators [data-bs-target] {
+  height: 0px !important;
+  width: 0px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .review__text {
+    font-size: 0.8rem;
+    margin: 20px 0px;
+  }
+
+  .slider__content h6 {
+    font-size: 0.8rem;
+  }
+}
+
+.extracss{
+  height: 20px !important;
+}

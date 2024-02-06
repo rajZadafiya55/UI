@@ -1,0 +1,14 @@
+/* login pagfe  */
+.login{
+    width: 32%;
+    border: 1px solid rgb(78, 186, 186);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+
+/* register page  */
+.registerbtn{
+width: 86%;
+margin-left: 21px ;
+}
