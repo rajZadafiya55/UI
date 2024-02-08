@@ -58,7 +58,7 @@ export default function RegistrationForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/api/register/add", data)
+      .post("https://food-server.cyclic.app/api/register/add", data)
       .then((e) => {
 
         const existingData = JSON.parse(localStorage.getItem("RegisterData")) || [];

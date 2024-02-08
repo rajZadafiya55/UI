@@ -31,7 +31,7 @@ const Contact = () => {
 
   const getContacts = () => {
     axios
-      .get("http://localhost:5000/api/contact/getAll")
+      .get("https://food-server.cyclic.app/api/contact/getAll")
       .then((res) => {
         console.log(res.data.data);
       })
@@ -52,7 +52,7 @@ const Contact = () => {
     setValidated(true);
 
     await axios
-      .post("http://localhost:5000/api/contact/add", data)
+      .post("https://food-server.cyclic.app/api/contact/add", data)
       .then((res) => {
         getContacts();
         console.log(res.data.data);

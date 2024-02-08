@@ -9,7 +9,7 @@ const getItems = (items) => ({
 
 export const getItemsData = () => {
     return (dispatch) => {
-        axios.get('http://localhost:5000/api/item/getAll')
+        axios.get('https://food-server.cyclic.app/api/item/getAll')
             .then((res) => {
                 dispatch(getItems(res.data.data))
             }).catch((error) => {
@@ -32,7 +32,7 @@ export const addItem = (data) => {
         formData.append('category', data.category)
         formData.append('imagename', data.imagename[0])
 
-        axios.post("http://localhost:5000/api/item/add", formData)
+        axios.post("https://food-server.cyclic.app/api/item/add", formData)
             .then((res) => {
                 dispatch(addData);
                 dispatch(getItemsData());
@@ -61,7 +61,7 @@ export const addItem = (data) => {
 
 export const deleteItemData = (id) => {
     return (dispatch) => {
-        axios.delete(`http://localhost:5000/api/item/delete/${id}`)
+        axios.delete(`https://food-server.cyclic.app/api/item/delete/${id}`)
             .then((res) => {
                 dispatch(getItemsData())
                 if (res.data.isSuccess === true) {
@@ -91,7 +91,7 @@ export const getId = (items) => ({
 
 export const getBYID = (_id) => {
     return (dispatch) => {
-        axios.get(`http://localhost:5000/api/item/getById/${_id}`)
+        axios.get(`https://food-server.cyclic.app/api/item/getById/${_id}`)
             .then((res) => {
                 dispatch(getId(res.data.data));
                 console.log(res.data.data)
@@ -120,7 +120,7 @@ export const updateItemData = (data) => {
     
         formData.append('imagename', data.imagename[0])
 
-        axios.put(`http://localhost:5000/api/item/edit/id=${data._id}`, formData).then((res) => {
+        axios.put(`https://food-server.cyclic.app/api/item/edit/id=${data._id}`, formData).then((res) => {
             dispatch(edit(res.data.data))
             console.log(res.data.data);
             console.log("update api")

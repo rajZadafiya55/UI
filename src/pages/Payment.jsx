@@ -57,7 +57,7 @@ const PaymentPage = () => {
     validationSchema: PaymentSchema,
     onSubmit: async (values, { resetForm }) => {
       axios
-        .post("http://localhost:5000/api/payment/add", values)
+        .post("https://food-server.cyclic.app/api/payment/add", values)
         .then((res) => {
           getPayments();
           resetForm();
@@ -97,7 +97,7 @@ const PaymentPage = () => {
 
   const getPayments = () => {
     axios
-      .get("http://localhost:5000/api/payment/getAll")
+      .get("https://food-server.cyclic.app/api/payment/getAll")
       .then((res) => {
         console.log(res.data.data);
       })

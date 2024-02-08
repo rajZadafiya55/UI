@@ -8,7 +8,7 @@ const getTables = (table) => ({
 
 export const getTableData = () => {
     return (dispatch) => {
-        axios.get('http://localhost:5000/api/table/getAll')
+        axios.get('https://food-server.cyclic.app/api/table/getAll')
             .then((res) => {
                 dispatch(getTables(res.data.data))
             }).catch((error) => {

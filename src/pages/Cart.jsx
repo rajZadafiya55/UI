@@ -93,7 +93,7 @@ const Cart = () => {
   console.log(data);
   const getOrders = () => {
     axios
-      .get("http://localhost:5000/api/order/getAll")
+      .get("https://food-server.cyclic.app/api/order/getAll")
       .then((res) => {
         console.log(res.data.data);
       })
@@ -117,7 +117,7 @@ const Cart = () => {
     console.log("discount", total_amt);
 
     axios
-      .post("http://localhost:5000/api/order/add", fixedData)
+      .post("https://food-server.cyclic.app/api/order/add", fixedData)
       .then((res) => {
         getOrders();
         console.log(res.data.data);

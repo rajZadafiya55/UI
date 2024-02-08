@@ -8,7 +8,7 @@ const getReviews = (reviews) => ({
 
 export const getReviewData = () => {
     return (dispatch) => {
-        axios.get('http://localhost:5000/api/review/getAll')
+        axios.get('https://food-server.cyclic.app/api/review/getAll')
             .then((res) => {
                 dispatch(getReviews(res.data.data))
                 console.log(res.data.data)

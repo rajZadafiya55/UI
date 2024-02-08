@@ -56,7 +56,7 @@ const Review = () => {
   console.log(data);
   const getReviews = () => {
     axios
-      .get("http://localhost:5000/api/review/getAll")
+      .get("https://food-server.cyclic.app/api/review/getAll")
       .then((res) => {
         console.log(res.data.data);
       })
@@ -70,7 +70,7 @@ const Review = () => {
 
   const handleSubmit = async (e) => {
     await axios
-      .post("http://localhost:5000/api/review/add", data)
+      .post("https://food-server.cyclic.app/api/review/add", data)
       .then((res) => {
         getReviews();
         console.log(res.data.data);

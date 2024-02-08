@@ -15,7 +15,7 @@ console.log(email);
     <img src="${imageUrl}"  alt="Email Image"  style="max-width: 100%; height: 30vh;"/> <br/>
     Hello, this is an email from Chili-Restaurant..! Your Subscription is Successful..!`;
 
-    axios.post('http://localhost:5000/send-email', {
+    axios.post('https://food-server.cyclic.app/send-email', {
       to: email,
       subject: 'Subscription',
       html: emailContent,

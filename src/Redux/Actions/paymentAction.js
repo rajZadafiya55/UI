@@ -10,7 +10,7 @@ const getItems = (payments) => ({
 export const getPaymentsData = () => {
   return (dispatch) => {
     axios
-      .get("http://localhost:5000/api/payment/getAll")
+      .get("https://food-server.cyclic.app/api/payment/getAll")
       .then((res) => {
         dispatch(getItems(res.data.data));
       })
@@ -26,7 +26,7 @@ const addData = () => ({
 
 export const addItem = () => {
   axios
-    .post("http://localhost:5000/api/item/add")
+    .post("https://food-server.cyclic.app/api/item/add")
     .then((res) => {
       dispatch(addData);
       dispatch(getPaymentsData());

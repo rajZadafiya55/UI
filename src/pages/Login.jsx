@@ -40,7 +40,7 @@ export default function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:5000/api/register/login', data)
+      .post('https://food-server.cyclic.app/api/register/login', data)
       .then((y) => {
         localStorage.setItem('AdminData', JSON.stringify(y.data.data || 0));
         toast('login successfully'); 
