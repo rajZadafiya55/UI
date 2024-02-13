@@ -18,6 +18,7 @@ import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 // components
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { APIHttp } from "../helper/API";
 
 const TextField = styled(TextValidator)(() => ({
   width: "90%",
@@ -58,7 +59,7 @@ export default function RegistrationForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://food-server.cyclic.app/api/register/add", data)
+      .post(`${APIHttp}/register/add`, data)
       .then((e) => {
 
         const existingData = JSON.parse(localStorage.getItem("RegisterData")) || [];

@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import QRCode from "qrcode.react";
+import { APIHttp } from "../helper/API";
 
 const featureData = [
   {
@@ -30,13 +31,6 @@ const featureData = [
 ];
 
 const Review = () => {
-  // useEffect(() => {
-  //   ValidatorForm.addValidationRule("isPasswordMatch", (value) => {
-  //     if (value !== data.password) return false;
-  //     return true;
-  //   });
-  //   return () => ValidatorForm.removeValidationRule("isPasswordMatch");
-  // }, [data.password]);
   const [data, setdata] = useState({
     name: "",
     description: "",
@@ -56,7 +50,7 @@ const Review = () => {
   console.log(data);
   const getReviews = () => {
     axios
-      .get("https://food-server.cyclic.app/api/review/getAll")
+      .get(`${APIHttp}/review/getAll`)
       .then((res) => {
         console.log(res.data.data);
       })
@@ -70,7 +64,7 @@ const Review = () => {
 
   const handleSubmit = async (e) => {
     await axios
-      .post("https://food-server.cyclic.app/api/review/add", data)
+      .post(`${APIHttp}/review/add`, data)
       .then((res) => {
         getReviews();
         console.log(res.data.data);

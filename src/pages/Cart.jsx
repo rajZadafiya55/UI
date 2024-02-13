@@ -20,6 +20,7 @@ import { FiMinus } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { getTableData } from "../Redux/Actions/tableAction";
 import Swal from "sweetalert2";
+import { APIHttp } from "../helper/API";
 
 const Cart = () => {
   const auth = JSON.parse(localStorage.getItem("AdminData"));
@@ -39,7 +40,7 @@ const Cart = () => {
       ? shippingCost[2]
       : cartTotalAmount > 1000 && cartTotalAmount <= 2000
       ? shippingCost[3]
-      : cartTotalAmount > 2000  && cartTotalAmount <= 5000
+      : cartTotalAmount > 2000 && cartTotalAmount <= 5000
       ? shippingCost[4]
       : shippingCost[0];
   const total_amt = cartTotalAmount - Number(discount);
@@ -93,7 +94,7 @@ const Cart = () => {
   console.log(data);
   const getOrders = () => {
     axios
-      .get("https://food-server.cyclic.app/api/order/getAll")
+      .get(`${APIHttp}/order/getAll`)
       .then((res) => {
         console.log(res.data.data);
       })
@@ -117,11 +118,11 @@ const Cart = () => {
     console.log("discount", total_amt);
 
     axios
-      .post("https://food-server.cyclic.app/api/order/add", fixedData)
+      .post(`${APIHttp}/order/add`, fixedData)
       .then((res) => {
         getOrders();
         console.log(res.data.data);
-        localStorage.setItem('Order', JSON.stringify(res.data.data));
+        localStorage.setItem("Order", JSON.stringify(res.data.data));
         navigate("/payment");
         if (res.data.isSuccess === true) {
           Swal.fire({
@@ -169,10 +170,7 @@ const Cart = () => {
                 {cart.map((item) => (
                   <tr key={item._id}>
                     <td>
-                      <img
-                        src={item.imagename}
-                        className="image"
-                      />
+                      <img src={item.imagename} className="image" />
                     </td>
                     <td>{item.name}</td>
                     <td>₹{item.price.toFixed(2)}</td>

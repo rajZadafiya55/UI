@@ -1,8 +1,9 @@
 import { GET_PAYMENT_DATA, ADD_PAYMENT_DATA } from "../Types/type";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { APIHttp } from "../../helper/API";
 
-const getItems = (payments) => ({
+const getPayments = (payments) => ({
   type: GET_PAYMENT_DATA,
   payload: payments,
 });
@@ -10,9 +11,9 @@ const getItems = (payments) => ({
 export const getPaymentsData = () => {
   return (dispatch) => {
     axios
-      .get("https://food-server.cyclic.app/api/payment/getAll")
+      .get(`${APIHttp}/payment/getAll`)
       .then((res) => {
-        dispatch(getItems(res.data.data));
+        dispatch(getPayments(res.data.data));
       })
       .catch((error) => {
         console.log(error);
@@ -24,9 +25,9 @@ const addData = () => ({
   type: ADD_PAYMENT_DATA,
 });
 
-export const addItem = () => {
+export const addPaymentData = () => {
   axios
-    .post("https://food-server.cyclic.app/api/item/add")
+    .post(`${APIHttp}/payment/add`)
     .then((res) => {
       dispatch(addData);
       dispatch(getPaymentsData());

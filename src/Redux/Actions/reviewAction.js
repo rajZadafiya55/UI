@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { GET_REVIEW } from '../Types/type';
+import { APIHttp } from "../../helper/API";
 
 const getReviews = (reviews) => ({
     type: GET_REVIEW,
@@ -8,7 +9,7 @@ const getReviews = (reviews) => ({
 
 export const getReviewData = () => {
     return (dispatch) => {
-        axios.get('https://food-server.cyclic.app/api/review/getAll')
+        axios.get(`${APIHttp}/review/getAll`)
             .then((res) => {
                 dispatch(getReviews(res.data.data))
                 console.log(res.data.data)

@@ -9,6 +9,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { APIHttp } from "../helper/API";
 
 const Contact = () => {
   const [validated, setValidated] = useState(false);
@@ -31,7 +32,7 @@ const Contact = () => {
 
   const getContacts = () => {
     axios
-      .get("https://food-server.cyclic.app/api/contact/getAll")
+      .get(`${APIHttp}/contact/getAll`)
       .then((res) => {
         console.log(res.data.data);
       })
@@ -52,7 +53,7 @@ const Contact = () => {
     setValidated(true);
 
     await axios
-      .post("https://food-server.cyclic.app/api/contact/add", data)
+      .post(`${APIHttp}/contact/add`, data)
       .then((res) => {
         getContacts();
         console.log(res.data.data);

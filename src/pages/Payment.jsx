@@ -15,7 +15,8 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../Redux/Actions/cartAction";
-import '../Styles/cart.css'
+import '../Styles/cart.css';
+import { APIHttp } from "../helper/API";
 
 const PaymentSchema = Yup.object().shape({
   phone: Yup.string()
@@ -57,7 +58,7 @@ const PaymentPage = () => {
     validationSchema: PaymentSchema,
     onSubmit: async (values, { resetForm }) => {
       axios
-        .post("https://food-server.cyclic.app/api/payment/add", values)
+        .post(`${APIHttp}/payment/add`, values)
         .then((res) => {
           getPayments();
           resetForm();
@@ -97,7 +98,7 @@ const PaymentPage = () => {
 
   const getPayments = () => {
     axios
-      .get("https://food-server.cyclic.app/api/payment/getAll")
+      .get(`${APIHttp}/payment/getAll`)
       .then((res) => {
         console.log(res.data.data);
       })
