@@ -1,4 +1,4 @@
-import "../../../styles/items-card.css";
+import "../../../Styles/items-card.css";
 import { FaCartShopping } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../Redux/Actions/cartAction";
@@ -8,7 +8,7 @@ import { useEffect } from "react";
 // import {FaStar} from 'react-icons/fa';
 
 const ItemsCard = (props) => {
-  const { _id, name, imagename, price, category} = props.item;
+  const { _id, name, imagename, price, category } = props.item;
   const data = {
     _id,
     name,
