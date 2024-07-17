@@ -1,1 +1,1 @@
-export const APIHttp = "https://chili-restaurant-server.vercel.app/api"
+export const APIHttp = "https://server-api-3ic1.onrender.com/api";
