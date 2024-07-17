@@ -1,6 +1,6 @@
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 
-import "../../styles/footer.css";
+import "../../Styles/footer.css";
 import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { PiArrowSquareRightFill } from "react-icons/pi";
 import { useState } from "react";
