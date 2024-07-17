@@ -49,7 +49,7 @@ export const addItem = (data) => {
           });
         } else {
           Swal.fire({
-            n: "error",
+            icon: "error",
             title: "Oops...",
             text: res.data.message,
             timer: 2500,

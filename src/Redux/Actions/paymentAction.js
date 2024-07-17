@@ -26,6 +26,7 @@ const addData = () => ({
 });
 
 export const addPaymentData = () => {
+  return (dispatch) => {
   axios
     .post(`${APIHttp}/payment/add`)
     .then((res) => {
@@ -53,3 +54,4 @@ export const addPaymentData = () => {
       console.log(error);
     });
 };
+}

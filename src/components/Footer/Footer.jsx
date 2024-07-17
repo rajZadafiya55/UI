@@ -4,30 +4,32 @@ import "../../styles/footer.css";
 import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { PiArrowSquareRightFill } from "react-icons/pi";
 import { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 const Footer = () => {
-  const [email, setEmail] = useState('');
-console.log(email);
+  const [email, setEmail] = useState("");
+  console.log(email);
   const sendEmail = () => {
-    const imageUrl = 'https://assets-global.website-files.com/5daaade3e3e3f04da71daa8e/60c9d40039e3533cb7d9373f_GIFs%20in%20Emails.gif';
+    const imageUrl =
+      "https://assets-global.website-files.com/5daaade3e3e3f04da71daa8e/60c9d40039e3533cb7d9373f_GIFs%20in%20Emails.gif";
     const emailContent = `
     <img src="${imageUrl}"  alt="Email Image"  style="max-width: 100%; height: 30vh;"/> <br/>
     Hello, this is an email from Chili-Restaurant..! Your Subscription is Successful..!`;
 
-    axios.post('https://food-server.cyclic.app/send-email', {
-      to: email,
-      subject: 'Subscription',
-      html: emailContent,
-    })
-    .then(response => {
-      console.log(response.data);
-      console.log('email data',email)
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-    setEmail('');
+    axios
+      .post("https://chili-restaurant-server.vercel.app/send-email", {
+        to: email,
+        subject: "Subscription",
+        html: emailContent,
+      })
+      .then((response) => {
+        console.log(response.data);
+        console.log("email data", email);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+    setEmail("");
   };
   return (
     <footer className="footer mt-5">
@@ -37,7 +39,8 @@ console.log(email);
             <div className=" footer__logo text-start">
               <h4>Address</h4>
               <p className="fw-bold fs-6">
-                A/201 Zadafiya Complex<br />
+                A/201 Zadafiya Complex
+                <br />
                 Hirabg Surat 395006 India
               </p>
               <div>
@@ -66,12 +69,17 @@ console.log(email);
             <h5 className="footer__title">Newsletter</h5>
             <p>Subscribe our newsletter</p>
             <div className="newsletter">
-              <input type="email"  
-              value={email}
-              onChange={(e) => setEmail(e.target.value)} 
-              placeholder="Enter your email" />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+              />
               <button>
-                <PiArrowSquareRightFill className="arrwoicon" onClick={sendEmail}/>
+                <PiArrowSquareRightFill
+                  className="arrwoicon"
+                  onClick={sendEmail}
+                />
               </button>
             </div>
           </Col>
@@ -82,20 +90,17 @@ console.log(email);
               <ListGroupItem className=" delivery__time-item border-0 ps-0">
                 <div className="icdiv">
                   <FaTwitter className="icons" />
-
                 </div>
               </ListGroupItem>
               <ListGroupItem className=" delivery__time-item border-0 ps-0">
                 <div className="icdiv">
                   <FaFacebookF className="icons" />
-
                 </div>
               </ListGroupItem>
 
               <ListGroupItem className=" delivery__time-item border-0 ps-0">
                 <div className="icdiv">
                   <FaInstagram className="icons" />
-
                 </div>
               </ListGroupItem>
             </ListGroup>
@@ -107,7 +112,6 @@ console.log(email);
               © Copyright - 2023, website made by my Team. All Rights Reserved.
             </h2>
           </Col>
-
         </Row>
       </Container>
     </footer>
